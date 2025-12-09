@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { InteractiveBarChart } from "./charts/InteractiveBarChart"
+import { Interactive3DColumnChart } from "./charts/Interactive3DColumnChart"
 import { DonutChartComponent } from "./charts/DonutChart"
 import { Income3DPieChart } from "./charts/Income3DPieChart"
 import { BarChartComponent } from "./charts/BarChart"
@@ -105,7 +105,7 @@ export function Dashboard() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <InteractiveBarChart />
+                <Interactive3DColumnChart />
               </CardContent>
             </Card>
             <Card>
