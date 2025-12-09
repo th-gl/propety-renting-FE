@@ -27,7 +27,6 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Pagination } from "@/components/ui/pagination"
-import { dataService } from "@/services/dataService"
 import type { OverduePayment } from "@/types"
 import * as XLSX from "xlsx"
 
