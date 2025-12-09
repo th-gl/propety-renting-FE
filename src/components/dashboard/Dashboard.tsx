@@ -2,7 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TrendChart } from "./charts/TrendChart"
-import { PieChartComponent } from "./charts/PieChart"
 import { DonutChartComponent } from "./charts/DonutChart"
 import { Income3DPieChart } from "./charts/Income3DPieChart"
 import { BarChartComponent } from "./charts/BarChart"
@@ -126,7 +125,6 @@ export function Dashboard() {
           {/* Row 1.5: Pie Charts */}
           <div className="grid gap-4 md:grid-cols-2">
        
-
             <Card>
               <CardHeader>
                 <CardTitle>Annual Income Chart (5 Years)</CardTitle>
