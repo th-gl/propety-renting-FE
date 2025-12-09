@@ -125,17 +125,7 @@ export function Dashboard() {
 
           {/* Row 1.5: Pie Charts */}
           <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Commercial vs Residential</CardTitle>
-                <CardDescription>
-                  Distribution of tenants and revenue by sector
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <PieChartComponent />
-              </CardContent>
-            </Card>
+       
 
             <Card>
               <CardHeader>
