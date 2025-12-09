@@ -1,0 +1,67 @@
+[
+  {
+    "id": "maint-1",
+    "propertyId": "prop-1",
+    "propertyName": "Al-Noor Tower",
+    "unitId": "unit-1",
+    "unitNumber": "A-101",
+    "title": "HVAC System Repair",
+    "description": "Air conditioning unit not cooling properly",
+    "type": "reactive",
+    "status": "completed",
+    "cost": 2500,
+    "scheduledDate": "2024-11-15",
+    "completedDate": "2024-11-16",
+    "assignedTo": "Maintenance Team A",
+    "createdAt": "2024-11-14T00:00:00Z",
+    "updatedAt": "2024-11-16T00:00:00Z"
+  },
+  {
+    "id": "maint-2",
+    "propertyId": "prop-2",
+    "propertyName": "Green Valley Residences",
+    "unitId": "unit-2",
+    "unitNumber": "B-205",
+    "title": "Quarterly Building Inspection",
+    "description": "Routine safety and maintenance inspection",
+    "type": "preventive",
+    "status": "in_progress",
+    "cost": 5000,
+    "scheduledDate": "2024-12-10",
+    "assignedTo": "Maintenance Team B",
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "maint-3",
+    "propertyId": "prop-3",
+    "propertyName": "Business Plaza",
+    "title": "Elevator Maintenance",
+    "description": "Monthly elevator service and safety check",
+    "type": "preventive",
+    "status": "pending",
+    "cost": 3500,
+    "scheduledDate": "2024-12-15",
+    "assignedTo": "Maintenance Team C",
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "maint-4",
+    "propertyId": "prop-1",
+    "propertyName": "Al-Noor Tower",
+    "unitId": "unit-3",
+    "unitNumber": "A-302",
+    "title": "Plumbing Leak",
+    "description": "Water leak in bathroom",
+    "type": "emergency",
+    "status": "completed",
+    "cost": 1200,
+    "scheduledDate": "2024-11-20",
+    "completedDate": "2024-11-20",
+    "assignedTo": "Emergency Team",
+    "createdAt": "2024-11-20T00:00:00Z",
+    "updatedAt": "2024-11-20T00:00:00Z"
+  }
+]
+

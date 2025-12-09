@@ -3,6 +3,11 @@ import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/s
 import { Separator } from "@/components/ui/separator"
 import { Sidebar } from "./Sidebar"
 import { Dashboard } from "@/components/dashboard/Dashboard"
+import { Zones } from "@/components/modules/Zones"
+import { Properties } from "@/components/modules/Properties"
+import { Finance } from "@/components/modules/Finance"
+import { Contracts } from "@/components/modules/Contracts"
+import { Tenants } from "@/components/modules/Tenants"
 
 const menuItems = [
   { id: "dashboard", label: "Dashboard" },
@@ -23,26 +28,11 @@ export function DashboardLayout() {
       case "dashboard":
         return <Dashboard />
       case "zones":
-        return (
-          <div className="p-8">
-            <h1 className="text-3xl font-bold mb-4">Zones Management</h1>
-            <p className="text-muted-foreground">Zone management view coming soon...</p>
-          </div>
-        )
+        return <Zones />
       case "properties":
-        return (
-          <div className="p-8">
-            <h1 className="text-3xl font-bold mb-4">Properties</h1>
-            <p className="text-muted-foreground">Property management view coming soon...</p>
-          </div>
-        )
+        return <Properties />
       case "finance":
-        return (
-          <div className="p-8">
-            <h1 className="text-3xl font-bold mb-4">Finance</h1>
-            <p className="text-muted-foreground">Financial management view coming soon...</p>
-          </div>
-        )
+        return <Finance />
       case "maintenance":
         return (
           <div className="p-8">
@@ -51,19 +41,9 @@ export function DashboardLayout() {
           </div>
         )
       case "contracts":
-        return (
-          <div className="p-8">
-            <h1 className="text-3xl font-bold mb-4">Contracts</h1>
-            <p className="text-muted-foreground">Contract management view coming soon...</p>
-          </div>
-        )
+        return <Contracts />
       case "tenants":
-        return (
-          <div className="p-8">
-            <h1 className="text-3xl font-bold mb-4">Tenants</h1>
-            <p className="text-muted-foreground">Tenant management view coming soon...</p>
-          </div>
-        )
+        return <Tenants />
       case "settings":
         return (
           <div className="p-8">

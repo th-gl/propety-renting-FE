@@ -1,0 +1,47 @@
+[
+  {
+    "id": "exp-1",
+    "propertyId": "prop-1",
+    "propertyName": "Al-Noor Tower",
+    "category": "maintenance",
+    "description": "HVAC system repair",
+    "amount": 2500,
+    "date": "2024-11-16",
+    "costCenter": "Maintenance",
+    "createdAt": "2024-11-16T00:00:00Z"
+  },
+  {
+    "id": "exp-2",
+    "propertyId": "prop-2",
+    "propertyName": "Green Valley Residences",
+    "category": "utilities",
+    "description": "Monthly electricity bill",
+    "amount": 8500,
+    "date": "2024-12-01",
+    "costCenter": "Utilities",
+    "createdAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "exp-3",
+    "propertyId": "prop-1",
+    "propertyName": "Al-Noor Tower",
+    "category": "insurance",
+    "description": "Annual property insurance",
+    "amount": 45000,
+    "date": "2024-12-01",
+    "costCenter": "Insurance",
+    "createdAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "exp-4",
+    "propertyId": "prop-3",
+    "propertyName": "Business Plaza",
+    "category": "maintenance",
+    "description": "Elevator maintenance",
+    "amount": 3500,
+    "date": "2024-11-15",
+    "costCenter": "Maintenance",
+    "createdAt": "2024-11-15T00:00:00Z"
+  }
+]
+

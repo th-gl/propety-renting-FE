@@ -1,0 +1,69 @@
+[
+  {
+    "id": "payment-1",
+    "contractId": "contract-1",
+    "tenantId": "tenant-1",
+    "tenantName": "Abdullah Al-Rashid",
+    "amount": 15000,
+    "dueDate": "2024-12-01",
+    "paidDate": "2024-12-01",
+    "status": "paid",
+    "paymentMethod": "bank_transfer",
+    "referenceNumber": "REF-2024-1201-001",
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "payment-2",
+    "contractId": "contract-2",
+    "tenantId": "tenant-2",
+    "tenantName": "Mariam Al-Otaibi",
+    "amount": 8500,
+    "dueDate": "2024-12-01",
+    "paidDate": "2024-12-02",
+    "status": "paid",
+    "paymentMethod": "cash",
+    "referenceNumber": "REF-2024-1202-002",
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-02T00:00:00Z"
+  },
+  {
+    "id": "payment-3",
+    "contractId": "contract-3",
+    "tenantId": "tenant-3",
+    "tenantName": "Hassan Al-Mutairi",
+    "amount": 18000,
+    "dueDate": "2024-12-01",
+    "status": "pending",
+    "daysOverdue": 8,
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "payment-4",
+    "contractId": "contract-4",
+    "tenantId": "tenant-4",
+    "tenantName": "Noura Al-Saud",
+    "amount": 7200,
+    "dueDate": "2024-11-01",
+    "status": "overdue",
+    "daysOverdue": 38,
+    "createdAt": "2024-11-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "payment-5",
+    "contractId": "contract-5",
+    "tenantId": "tenant-5",
+    "tenantName": "Majid Al-Ghamdi",
+    "amount": 22000,
+    "dueDate": "2024-12-01",
+    "paidDate": "2024-12-01",
+    "status": "paid",
+    "paymentMethod": "bank_transfer",
+    "referenceNumber": "REF-2024-1201-005",
+    "createdAt": "2024-12-01T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  }
+]
+

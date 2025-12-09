@@ -1,0 +1,43 @@
+[
+  {
+    "id": "zone-1",
+    "name": "Zone A",
+    "nameAr": "المنطقة أ",
+    "managerId": "manager-1",
+    "managerName": "Ahmed Al-Mansouri",
+    "description": "Northern commercial district",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "zone-2",
+    "name": "Zone B",
+    "nameAr": "المنطقة ب",
+    "managerId": "manager-2",
+    "managerName": "Fatima Al-Zahra",
+    "description": "Central residential area",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "zone-3",
+    "name": "Zone C",
+    "nameAr": "المنطقة ج",
+    "managerId": "manager-3",
+    "managerName": "Mohammed Al-Saud",
+    "description": "Mixed commercial and residential",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  },
+  {
+    "id": "zone-4",
+    "name": "Zone D",
+    "nameAr": "المنطقة د",
+    "managerId": "manager-4",
+    "managerName": "Sara Al-Rashid",
+    "description": "Southern business district",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-12-01T00:00:00Z"
+  }
+]
+

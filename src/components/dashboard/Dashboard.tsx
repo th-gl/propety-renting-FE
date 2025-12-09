@@ -9,7 +9,6 @@ import { BarChartComponent } from "./charts/BarChart"
 import { LineChartComponent } from "./charts/LineChart"
 import { RadarChartComponent } from "./charts/RadarChart"
 import { RadialChartComponent } from "./charts/RadialChart"
-import { ChartThemeSelector } from "./ChartThemeSelector"
 import { TrendingUp, DollarSign, Building2, AlertCircle, CheckCircle2, FileText } from "lucide-react"
 
 export function Dashboard() {
@@ -86,9 +85,7 @@ export function Dashboard() {
       </div>
 
       {/* Chart Theme Selector */}
-      <div className="flex justify-end">
-        <ChartThemeSelector />
-      </div>
+  
 
       {/* Main Charts Section */}
       <Tabs defaultValue="overview" className="space-y-4">
