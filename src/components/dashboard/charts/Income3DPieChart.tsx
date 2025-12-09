@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import { useChartTheme } from '@/lib/chart-theme'
@@ -80,7 +80,6 @@ export function Income3DPieChart() {
     series: [{
       name: 'Income',
       type: 'pie',
-      colorByPoint: true,
       data: [
         {
           name: '2020',

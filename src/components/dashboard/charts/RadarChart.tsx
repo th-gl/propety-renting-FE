@@ -26,7 +26,6 @@ export function RadarChartComponent() {
     },
   }
 
-export function RadarChartComponent() {
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <RadarChart data={chartData}>

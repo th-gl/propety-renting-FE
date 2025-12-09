@@ -2,7 +2,6 @@ import { RadialBar, RadialBarChart, Legend } from "recharts"
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 import { useChartTheme } from "@/lib/chart-theme"
 
@@ -36,7 +35,6 @@ export function RadialChartComponent() {
     },
   }
 
-export function RadialChartComponent() {
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <RadialBarChart

@@ -17,27 +17,27 @@ export interface ChartTheme {
   highchartsColors: string[]
 }
 
-// Default theme
+// Default theme - using colors from 3D pie chart
 export const defaultChartTheme: ChartTheme = {
   colors: {
-    primary: 'hsl(var(--chart-1))',      // Orange/Red for Commercial
-    secondary: 'hsl(var(--chart-2))',    // Teal/Blue for Residential
-    tertiary: 'hsl(var(--chart-3))',     // Third color
-    quaternary: 'hsl(var(--chart-4))',   // Fourth color
-    quinary: 'hsl(var(--chart-5))',      // Fifth color
-    commercial: 'hsl(var(--chart-1))',   // Commercial sector
-    residential: 'hsl(var(--chart-2))',   // Residential sector
+    primary: 'hsl(var(--chart-1))',      // 2021 - Blue (for Commercial/Revenue)
+    secondary: 'hsl(var(--chart-2))',    // 2023 - Medium Gray (for Residential/Contracts)
+    tertiary: 'hsl(var(--chart-3))',     // 2024 - Dark Blue (for third data series)
+    quaternary: 'hsl(var(--chart-4))',   // 2020 - Light Gray (for fourth data series)
+    quinary: 'hsl(var(--chart-5))',      // 2025 - Very Light Gray/White (for fifth data series)
+    commercial: 'hsl(var(--chart-1))',   // Commercial sector - Blue
+    residential: 'hsl(var(--chart-2))',   // Residential sector - Medium Gray
     success: '#22c55e',
     warning: '#f59e0b',
     error: '#ef4444',
-    info: '#3b82f6',
+    info: 'hsl(var(--chart-1))',         // Info - Blue
   },
   highchartsColors: [
-    '#C0C0C0',  // 2020 - Grey
-    '#3498db',  // 2021 - Light Blue
-    '#90a4ae',  // 2023 - Greyish Blue
+    '#C0C0C0',  // 2020 - Light Gray
+    '#3498db',  // 2021 - Blue
+    '#90a4ae',  // 2023 - Medium Gray
     '#1a2b4c',  // 2024 - Dark Blue
-    '#ecf0f1',  // 2025 - Light Grey
+    '#ecf0f1',  // 2025 - Very Light Gray/White
   ],
 }
 
@@ -113,7 +113,8 @@ export const chartThemes: Record<string, ChartTheme> = {
 }
 
 // Theme context/hook for managing theme
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useState } from 'react'
+import type { ReactNode } from 'react'
 
 interface ChartThemeContextType {
   theme: ChartTheme

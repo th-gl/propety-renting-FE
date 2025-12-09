@@ -3,45 +3,10 @@ import { Pie, PieChart, Cell } from "recharts"
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
 } from "@/components/ui/chart"
 import { useChartTheme } from "@/lib/chart-theme"
-
-export function DonutChartComponent() {
-  const { theme } = useChartTheme()
-  
-  // Commercial vs Residential data - matching the image
-  const chartData = [
-    { 
-      name: "Commercial", 
-      nameAr: "التجاري",
-      value: 24551497.5, 
-      count: 243, 
-      fill: theme.colors.commercial
-    },
-    { 
-      name: "Residential", 
-      nameAr: "السكني",
-      value: 9255750, 
-      count: 44, 
-      fill: theme.colors.residential
-    },
-  ]
-
-  const chartConfig = {
-    commercial: {
-      label: "Commercial",
-      labelAr: "التجاري",
-      color: theme.colors.commercial,
-    },
-    residential: {
-      label: "Residential",
-      labelAr: "السكني",
-      color: theme.colors.residential,
-    },
-  }
 
 export function DonutChartComponent() {
   const [activeIndex, setActiveIndex] = useState<number | undefined>(undefined)
@@ -173,7 +138,7 @@ export function DonutChartComponent() {
         </Pie>
         <ChartLegend 
           content={<ChartLegendContent />}
-          payload={chartData.map((item, index) => ({
+          payload={chartData.map((item) => ({
             value: `${item.name} (${item.nameAr})`,
             type: "square",
             id: item.name,
@@ -184,4 +149,3 @@ export function DonutChartComponent() {
     </ChartContainer>
   )
 }
-

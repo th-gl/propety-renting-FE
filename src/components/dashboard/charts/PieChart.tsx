@@ -2,7 +2,6 @@ import { Pie, PieChart, Cell } from "recharts"
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
 } from "@/components/ui/chart"

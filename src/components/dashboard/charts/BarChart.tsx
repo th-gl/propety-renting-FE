@@ -28,7 +28,6 @@ export function BarChartComponent() {
     },
   }
 
-export function BarChartComponent() {
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <BarChart data={chartData}>

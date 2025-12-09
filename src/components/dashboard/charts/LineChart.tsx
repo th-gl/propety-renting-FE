@@ -30,7 +30,6 @@ export function LineChartComponent() {
     },
   }
 
-export function LineChartComponent() {
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <LineChart data={chartData}>
