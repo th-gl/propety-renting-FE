@@ -1,11 +1,14 @@
+import { BrowserRouter } from "react-router-dom"
 import { DashboardLayout } from "@/components/layout/DashboardLayout"
 import { ChartThemeProvider } from "@/lib/chart-theme"
 
 function App() {
   return (
-    <ChartThemeProvider>
-      <DashboardLayout />
-    </ChartThemeProvider>
+    <BrowserRouter>
+      <ChartThemeProvider>
+        <DashboardLayout />
+      </ChartThemeProvider>
+    </BrowserRouter>
   )
 }
 

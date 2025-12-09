@@ -33,6 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Pagination } from "@/components/ui/pagination"
 import { dataService } from "@/services/dataService"
 import type { Tenant, Property } from "@/types"
 
@@ -45,6 +46,8 @@ export function Tenants() {
   const [filterStatus, setFilterStatus] = useState<string>("all")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [editingTenant, setEditingTenant] = useState<Tenant | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
   const [formData, setFormData] = useState({
     name: "",
     nameAr: "",
@@ -86,6 +89,7 @@ export function Tenants() {
     }
 
     setFilteredTenants(filtered)
+    setCurrentPage(1) // Reset to first page when filters change
   }, [searchTerm, filterCategory, filterStatus, tenants])
 
   const loadData = async () => {
@@ -179,6 +183,12 @@ export function Tenants() {
         return <Badge variant="outline">Inactive</Badge>
     }
   }
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredTenants.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedTenants = filteredTenants.slice(startIndex, endIndex)
 
   return (
     <div className="p-6 space-y-6">
@@ -293,14 +303,14 @@ export function Tenants() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredTenants.length === 0 ? (
+              {paginatedTenants.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={6} className="text-center text-muted-foreground">
                     No tenants found
                   </TableCell>
                 </TableRow>
               ) : (
-                filteredTenants.map((tenant) => (
+                paginatedTenants.map((tenant) => (
                   <TableRow key={tenant.id}>
                     <TableCell className="font-medium">
                       <div>
@@ -347,6 +357,16 @@ export function Tenants() {
               )}
             </TableBody>
           </Table>
+          {filteredTenants.length > 0 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              itemsPerPage={itemsPerPage}
+              totalItems={filteredTenants.length}
+              onPageChange={setCurrentPage}
+              onItemsPerPageChange={setItemsPerPage}
+            />
+          )}
         </CardContent>
       </Card>
 

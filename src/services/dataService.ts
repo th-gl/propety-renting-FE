@@ -215,6 +215,11 @@ class DataService {
   async getZoneManagers(): Promise<ZoneManager[]> {
     return this.readFile<ZoneManager>('zoneManagers.json')
   }
+
+  // Overdue Payments
+  async getOverduePayments(): Promise<any[]> {
+    return this.readFile<any>('overduePayments.json')
+  }
 }
 
 export const dataService = new DataService()

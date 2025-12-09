@@ -173,3 +173,17 @@ export interface DashboardData {
   collectionRate: number
 }
 
+export interface OverduePayment {
+  id: string
+  branch: string
+  rowNumber: number
+  tenantName: string
+  tenantNameAr: string
+  dueDate: string
+  dueDateHijri: string
+  daysDelayed: number
+  amountDue: number
+  status: 'scheduling' | 'scheduling_termination' | 'terminated' | 'court_case' | 'evicted' | 'active'
+  notes: string
+}
+

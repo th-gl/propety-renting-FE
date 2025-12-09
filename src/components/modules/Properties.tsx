@@ -33,6 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Pagination } from "@/components/ui/pagination"
 import { dataService } from "@/services/dataService"
 import type { Property } from "@/types"
 
@@ -44,6 +45,8 @@ export function Properties() {
   const [filterZone, setFilterZone] = useState<string>("all")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [editingProperty, setEditingProperty] = useState<Property | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
   const [formData, setFormData] = useState({
     name: "",
     nameAr: "",
@@ -78,6 +81,7 @@ export function Properties() {
     }
 
     setFilteredProperties(filtered)
+    setCurrentPage(1) // Reset to first page when filters change
   }, [searchTerm, filterZone, properties])
 
   const loadData = async () => {
@@ -150,6 +154,12 @@ export function Properties() {
     if (total === 0) return 0
     return Math.round((occupied / total) * 100)
   }
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredProperties.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedProperties = filteredProperties.slice(startIndex, endIndex)
 
   return (
     <div className="p-6 space-y-6">
@@ -264,14 +274,14 @@ export function Properties() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredProperties.length === 0 ? (
+              {paginatedProperties.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={7} className="text-center text-muted-foreground">
                     No properties found
                   </TableCell>
                 </TableRow>
               ) : (
-                filteredProperties.map((property) => (
+                paginatedProperties.map((property) => (
                   <TableRow key={property.id}>
                     <TableCell className="font-medium">
                       <div>
@@ -328,6 +338,16 @@ export function Properties() {
               )}
             </TableBody>
           </Table>
+          {filteredProperties.length > 0 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              itemsPerPage={itemsPerPage}
+              totalItems={filteredProperties.length}
+              onPageChange={setCurrentPage}
+              onItemsPerPageChange={setItemsPerPage}
+            />
+          )}
         </CardContent>
       </Card>
 

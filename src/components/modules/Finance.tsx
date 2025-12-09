@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Pagination } from "@/components/ui/pagination"
 import { dataService } from "@/services/dataService"
 import type { Payment, Expense } from "@/types"
 
@@ -27,6 +28,10 @@ export function Finance() {
   const [filteredPayments, setFilteredPayments] = useState<Payment[]>([])
   const [searchTerm, setSearchTerm] = useState("")
   const [dateRange, setDateRange] = useState({ start: "", end: "" })
+  const [currentPagePayments, setCurrentPagePayments] = useState(1)
+  const [itemsPerPagePayments, setItemsPerPagePayments] = useState(10)
+  const [currentPageExpenses, setCurrentPageExpenses] = useState(1)
+  const [itemsPerPageExpenses, setItemsPerPageExpenses] = useState(10)
 
   useEffect(() => {
     loadData()
@@ -52,6 +57,7 @@ export function Finance() {
     }
 
     setFilteredPayments(filtered)
+    setCurrentPagePayments(1) // Reset to first page when filters change
   }, [searchTerm, dateRange, payments])
 
   const loadData = async () => {
@@ -79,6 +85,18 @@ export function Finance() {
   const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0)
 
   const netIncome = totalRevenue - totalExpenses
+
+  // Pagination calculations for Payments
+  const totalPagesPayments = Math.ceil(filteredPayments.length / itemsPerPagePayments)
+  const startIndexPayments = (currentPagePayments - 1) * itemsPerPagePayments
+  const endIndexPayments = startIndexPayments + itemsPerPagePayments
+  const paginatedPayments = filteredPayments.slice(startIndexPayments, endIndexPayments)
+
+  // Pagination calculations for Expenses
+  const totalPagesExpenses = Math.ceil(expenses.length / itemsPerPageExpenses)
+  const startIndexExpenses = (currentPageExpenses - 1) * itemsPerPageExpenses
+  const endIndexExpenses = startIndexExpenses + itemsPerPageExpenses
+  const paginatedExpenses = expenses.slice(startIndexExpenses, endIndexExpenses)
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -226,14 +244,14 @@ export function Finance() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {filteredPayments.length === 0 ? (
+                  {paginatedPayments.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={7} className="text-center text-muted-foreground">
                         No payments found
                       </TableCell>
                     </TableRow>
                   ) : (
-                    filteredPayments.map((payment) => (
+                    paginatedPayments.map((payment) => (
                       <TableRow key={payment.id}>
                         <TableCell className="font-medium">
                           {payment.tenantName}
@@ -263,6 +281,16 @@ export function Finance() {
                   )}
                 </TableBody>
               </Table>
+              {filteredPayments.length > 0 && (
+                <Pagination
+                  currentPage={currentPagePayments}
+                  totalPages={totalPagesPayments}
+                  itemsPerPage={itemsPerPagePayments}
+                  totalItems={filteredPayments.length}
+                  onPageChange={setCurrentPagePayments}
+                  onItemsPerPageChange={setItemsPerPagePayments}
+                />
+              )}
             </CardContent>
           </Card>
         </TabsContent>
@@ -290,14 +318,14 @@ export function Finance() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {expenses.length === 0 ? (
+                  {paginatedExpenses.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={6} className="text-center text-muted-foreground">
                         No expenses found
                       </TableCell>
                     </TableRow>
                   ) : (
-                    expenses.map((expense) => (
+                    paginatedExpenses.map((expense) => (
                       <TableRow key={expense.id}>
                         <TableCell className="font-medium">
                           {expense.propertyName}
@@ -314,6 +342,16 @@ export function Finance() {
                   )}
                 </TableBody>
               </Table>
+              {expenses.length > 0 && (
+                <Pagination
+                  currentPage={currentPageExpenses}
+                  totalPages={totalPagesExpenses}
+                  itemsPerPage={itemsPerPageExpenses}
+                  totalItems={expenses.length}
+                  onPageChange={setCurrentPageExpenses}
+                  onItemsPerPageChange={setItemsPerPageExpenses}
+                />
+              )}
             </CardContent>
           </Card>
         </TabsContent>

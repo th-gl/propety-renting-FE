@@ -26,6 +26,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Pagination } from "@/components/ui/pagination"
 import { dataService } from "@/services/dataService"
 import type { Zone } from "@/types"
 
@@ -35,6 +36,8 @@ export function Zones() {
   const [searchTerm, setSearchTerm] = useState("")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [editingZone, setEditingZone] = useState<Zone | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
   const [formData, setFormData] = useState({
     name: "",
     nameAr: "",
@@ -55,6 +58,7 @@ export function Zones() {
         zone.managerName.toLowerCase().includes(searchTerm.toLowerCase())
     )
     setFilteredZones(filtered)
+    setCurrentPage(1) // Reset to first page when filters change
   }, [searchTerm, zones])
 
   const loadZones = async () => {
@@ -106,6 +110,12 @@ export function Zones() {
     loadZones()
   }
 
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredZones.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedZones = filteredZones.slice(startIndex, endIndex)
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
@@ -153,14 +163,14 @@ export function Zones() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredZones.length === 0 ? (
+              {paginatedZones.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={5} className="text-center text-muted-foreground">
                     No zones found
                   </TableCell>
                 </TableRow>
               ) : (
-                filteredZones.map((zone) => (
+                paginatedZones.map((zone) => (
                   <TableRow key={zone.id}>
                     <TableCell className="font-medium">{zone.name}</TableCell>
                     <TableCell>{zone.nameAr}</TableCell>
@@ -193,6 +203,16 @@ export function Zones() {
               )}
             </TableBody>
           </Table>
+          {filteredZones.length > 0 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              itemsPerPage={itemsPerPage}
+              totalItems={filteredZones.length}
+              onPageChange={setCurrentPage}
+              onItemsPerPageChange={setItemsPerPage}
+            />
+          )}
         </CardContent>
       </Card>
 

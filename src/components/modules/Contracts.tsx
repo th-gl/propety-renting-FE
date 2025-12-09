@@ -33,6 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Pagination } from "@/components/ui/pagination"
 import { dataService } from "@/services/dataService"
 import type { Contract, Tenant, Property } from "@/types"
 
@@ -46,6 +47,8 @@ export function Contracts() {
   const [filterStatus, setFilterStatus] = useState<string>("all")
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [editingContract, setEditingContract] = useState<Contract | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
   const [formData, setFormData] = useState({
     tenantId: "",
     tenantName: "",
@@ -85,6 +88,7 @@ export function Contracts() {
     }
 
     setFilteredContracts(filtered)
+    setCurrentPage(1) // Reset to first page when filters change
   }, [searchTerm, filterCategory, filterStatus, contracts])
 
   const loadData = async () => {
@@ -160,6 +164,12 @@ export function Contracts() {
   const activeContracts = contracts.filter((c) => c.status === "active").length
   const commercialContracts = contracts.filter((c) => c.category === "commercial").length
   const residentialContracts = contracts.filter((c) => c.category === "residential").length
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredContracts.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedContracts = filteredContracts.slice(startIndex, endIndex)
 
   return (
     <div className="p-6 space-y-6">
@@ -278,14 +288,14 @@ export function Contracts() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredContracts.length === 0 ? (
+              {paginatedContracts.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={9} className="text-center text-muted-foreground">
                     No contracts found
                   </TableCell>
                 </TableRow>
               ) : (
-                filteredContracts.map((contract) => (
+                paginatedContracts.map((contract) => (
                   <TableRow key={contract.id}>
                     <TableCell className="font-medium">
                       {contract.contractNumber}
@@ -338,6 +348,16 @@ export function Contracts() {
               )}
             </TableBody>
           </Table>
+          {filteredContracts.length > 0 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              itemsPerPage={itemsPerPage}
+              totalItems={filteredContracts.length}
+              onPageChange={setCurrentPage}
+              onItemsPerPageChange={setItemsPerPage}
+            />
+          )}
         </CardContent>
       </Card>
 

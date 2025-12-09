@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom"
 import {
   LayoutDashboard,
   Building2,
@@ -7,59 +8,69 @@ import {
   FileText,
   Users,
   Settings,
+  BarChart3,
 } from "lucide-react"
 import {
   Sidebar as ShadcnSidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-
-interface SidebarProps {
-  activeView: string
-  setActiveView: (view: string) => void
-}
+import logoImage from "@/assets/logo.png"
 
 const menuItems = [
-  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "zones", label: "Zones", icon: MapPin },
-  { id: "properties", label: "Properties", icon: Building2 },
-  { id: "finance", label: "Finance", icon: DollarSign },
-  { id: "maintenance", label: "Maintenance", icon: Wrench },
-  { id: "contracts", label: "Contracts", icon: FileText },
-  { id: "tenants", label: "Tenants", icon: Users },
-  { id: "settings", label: "Settings", icon: Settings },
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { id: "reports", label: "Reports", icon: BarChart3, path: "/reports" },
+  { id: "properties", label: "Properties", icon: Building2, path: "/properties" },
+  { id: "zones", label: "Zones", icon: MapPin, path: "/zones" },
+  { id: "finance", label: "Finance", icon: DollarSign, path: "/finance" },
+  { id: "contracts", label: "Contracts", icon: FileText, path: "/contracts" },
+  { id: "tenants", label: "Tenants", icon: Users, path: "/tenants" },
+  { id: "maintenance", label: "Maintenance", icon: Wrench, path: "/maintenance" },
+  { id: "settings", label: "Settings", icon: Settings, path: "/settings" },
 ]
 
-export function Sidebar({ activeView, setActiveView }: SidebarProps) {
+export function Sidebar() {
+  const location = useLocation()
+  const currentPath = location.pathname
+
   return (
     <ShadcnSidebar className="border-r">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-lg font-bold px-4 py-6">
-            Property Manager
-          </SidebarGroupLabel>
+          <div className="flex items-center gap-3 px-4 py-6">
+            <img 
+              src={logoImage} 
+              alt="Property Manager Logo" 
+              className="h-12 mb-4 object-contain"
+            />
+            {/* <SidebarGroupLabel className="text-lg font-bold">
+              Property Manager
+            </SidebarGroupLabel> */}
+          </div>
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => {
                 const Icon = item.icon
+                const isActive = currentPath === item.path || (currentPath === "/" && item.id === "dashboard")
                 return (
                   <SidebarMenuItem key={item.id}>
                     <SidebarMenuButton
-                      onClick={() => setActiveView(item.id)}
-                      isActive={activeView === item.id}
+                      asChild
+                      isActive={isActive}
                       className={cn(
                         "w-full justify-start",
-                        activeView === item.id && "bg-accent"
+                        isActive && "bg-accent"
                       )}
                     >
-                      <Icon className="mr-2 h-4 w-4" />
-                      {item.label}
+                      <Link to={item.path}>
+                        <Icon className="mr-2 h-4 w-4" />
+                        {item.label}
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 )

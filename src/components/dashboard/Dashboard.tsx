@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { TrendChart } from "./charts/TrendChart"
+import { InteractiveBarChart } from "./charts/InteractiveBarChart"
 import { DonutChartComponent } from "./charts/DonutChart"
 import { Income3DPieChart } from "./charts/Income3DPieChart"
 import { BarChartComponent } from "./charts/BarChart"
@@ -105,26 +105,9 @@ export function Dashboard() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <TrendChart />
+                <InteractiveBarChart />
               </CardContent>
             </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Sectors & Number of Tenants</CardTitle>
-                <CardDescription>
-                  Commercial vs Residential distribution with tenant counts
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <DonutChartComponent />
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Row 1.5: Pie Charts */}
-          <div className="grid gap-4 md:grid-cols-2">
-       
             <Card>
               <CardHeader>
                 <CardTitle>Annual Income Chart (5 Years)</CardTitle>
@@ -136,6 +119,26 @@ export function Dashboard() {
                 <Income3DPieChart />
               </CardContent>
             </Card>
+          
+
+
+
+          </div>
+
+          {/* Row 1.5: Pie Charts */}
+          <div className="grid gap-4 md:grid-cols-2">
+          <Card>
+              <CardHeader>
+                <CardTitle>Sectors & Number of Tenants</CardTitle>
+                <CardDescription>
+                  Commercial vs Residential distribution with tenant counts
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <DonutChartComponent />
+              </CardContent>
+            </Card>
+       
           </div>
 
           {/* Row 2: Bar Chart */}
