@@ -9,6 +9,16 @@ import {
   Users,
   Settings,
   BarChart3,
+  Ticket,
+  CreditCard,
+  FolderOpen,
+  UserCog,
+  Shield,
+  Activity,
+  Bell,
+  AlertTriangle,
+  Upload,
+  TrendingUp,
 } from "lucide-react"
 import {
   Sidebar as ShadcnSidebar,
@@ -24,13 +34,22 @@ import logoImage from "@/assets/logo.png"
 
 const menuItems = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
-  { id: "reports", label: "Reports", icon: BarChart3, path: "/reports" },
+  { id: "executive", label: "Executive", icon: TrendingUp, path: "/executive" },
   { id: "properties", label: "Properties", icon: Building2, path: "/properties" },
   { id: "zones", label: "Zones", icon: MapPin, path: "/zones" },
-  { id: "finance", label: "Finance", icon: DollarSign, path: "/finance" },
   { id: "contracts", label: "Contracts", icon: FileText, path: "/contracts" },
   { id: "tenants", label: "Tenants", icon: Users, path: "/tenants" },
+  { id: "leases", label: "Leases", icon: FileText, path: "/leases" },
+  { id: "collections", label: "Collections", icon: CreditCard, path: "/collections" },
+  { id: "assets", label: "Assets", icon: FolderOpen, path: "/assets" },
   { id: "maintenance", label: "Maintenance", icon: Wrench, path: "/maintenance" },
+  { id: "tickets", label: "Tickets", icon: Ticket, path: "/tickets" },
+  { id: "imports", label: "Imports", icon: Upload, path: "/imports" },
+  { id: "users", label: "Users", icon: UserCog, path: "/users" },
+  { id: "roles", label: "Roles", icon: Shield, path: "/roles" },
+  { id: "activity-logs", label: "Activity Logs", icon: Activity, path: "/activity-logs" },
+  { id: "notifications", label: "Notifications", icon: Bell, path: "/notifications" },
+  { id: "alerts", label: "Alerts", icon: AlertTriangle, path: "/alerts" },
   { id: "settings", label: "Settings", icon: Settings, path: "/settings" },
 ]
 
@@ -56,7 +75,7 @@ export function Sidebar() {
             <SidebarMenu>
               {menuItems.map((item) => {
                 const Icon = item.icon
-                const isActive = currentPath === item.path || (currentPath === "/" && item.id === "dashboard")
+                const isActive = currentPath === item.path || currentPath.startsWith(item.path + "/") || (currentPath === "/" && item.id === "dashboard")
                 return (
                   <SidebarMenuItem key={item.id}>
                     <SidebarMenuButton
