@@ -42,6 +42,12 @@ import { TicketList } from "@/pages/tickets/TicketList"
 import { TicketDetails } from "@/pages/tickets/TicketDetails"
 import { TicketCreate } from "@/pages/tickets/TicketCreate"
 
+// Tasks
+import { TaskList } from "@/pages/tasks/TaskList"
+import { TaskDetails } from "@/pages/tasks/TaskDetails"
+import { TaskCreate } from "@/pages/tasks/TaskCreate"
+import { TaskEdit } from "@/pages/tasks/TaskEdit"
+
 // Collections
 import { Collections } from "@/pages/collections/Collections"
 import { PaymentCreate } from "@/pages/collections/PaymentCreate"
@@ -125,6 +131,12 @@ export function AppRoutes() {
       <Route path="/tickets" element={<TicketList />} />
       <Route path="/tickets/create" element={<TicketCreate />} />
       <Route path="/tickets/:id" element={<TicketDetails />} />
+
+      {/* Tasks */}
+      <Route path="/tasks" element={<TaskList />} />
+      <Route path="/tasks/create" element={<TaskCreate />} />
+      <Route path="/tasks/:id" element={<TaskDetails />} />
+      <Route path="/tasks/:id/edit" element={<TaskEdit />} />
 
       {/* Collections */}
       <Route path="/collections" element={<Collections />} />
