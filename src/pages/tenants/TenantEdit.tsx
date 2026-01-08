@@ -23,7 +23,7 @@ const tenantData = {
 }
 
 export function TenantEdit() {
-  const { id } = useParams()
+  const { id: _id } = useParams()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(tenantData)
 

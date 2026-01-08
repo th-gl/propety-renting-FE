@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { Save, X, Upload, Image as ImageIcon } from "lucide-react"
+import { Save, X, Upload } from "lucide-react"
 
 export function PropertyCreate() {
   const navigate = useNavigate()

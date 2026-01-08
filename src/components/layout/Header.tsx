@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useState } from "react"
-import { cn } from "@/lib/utils"
 
 interface HeaderProps {
   onThemeToggle?: () => void

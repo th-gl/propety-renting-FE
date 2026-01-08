@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 import { DashboardLayout } from "@/components/layout/DashboardLayout"
 import { ChartThemeProvider } from "@/lib/chart-theme"
-import { AppRoutes } from "@/routes"
 import { Signup } from "@/pages/auth/Signup"
 import { Login } from "@/pages/auth/Login"
 import { ResetPassword } from "@/pages/auth/ResetPassword"

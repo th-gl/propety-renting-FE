@@ -7,7 +7,6 @@ import { BadgeStatus } from "@/components/common/BadgeStatus"
 import { TabsSection } from "@/components/common/TabsSection"
 import { DollarSign, TrendingUp, AlertTriangle, Scale } from "lucide-react"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 
 const overdueTenants = [
   { id: "1", tenant: "John Doe", property: "Building A - Unit 101", amount: 5000, daysOverdue: 15, status: "overdue" },

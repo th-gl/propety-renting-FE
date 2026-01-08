@@ -4,8 +4,7 @@ import { PageContainer } from "@/components/layout/PageContainer"
 import { DataTable, type Column } from "@/components/common/DataTable"
 import { FilterBar } from "@/components/common/FilterBar"
 import { Button } from "@/components/ui/button"
-import { BadgeStatus } from "@/components/common/BadgeStatus"
-import { Plus, Eye, Image as ImageIcon, Share2 } from "lucide-react"
+import { Plus, Eye, Image as ImageIcon } from "lucide-react"
 
 const properties = [
   { id: "1", name: "Building A", address: "123 Main St", zone: "Zone A", totalUnits: 50, occupiedUnits: 45, emptyUnits: 5, daysEmpty: 30, status: "active" },

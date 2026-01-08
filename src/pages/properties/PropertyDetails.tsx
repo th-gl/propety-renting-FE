@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { TabsSection } from "@/components/common/TabsSection"
-import { ImageIcon, Share2, DollarSign, Users } from "lucide-react"
+import { ImageIcon, Share2, DollarSign } from "lucide-react"
 
 const propertyData = {
   id: "1",

@@ -1,7 +1,7 @@
 import { PageContainer } from "@/components/layout/PageContainer"
 import { StatCard } from "@/components/common/StatCard"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { DollarSign, Users, FileText, AlertTriangle, Bell, Calendar, Building2, TrendingUp, TrendingDown, Wrench, CreditCard, MapPin } from "lucide-react"
+import { DollarSign, FileText, AlertTriangle, Bell, Calendar, Building2, TrendingUp, Wrench, CreditCard } from "lucide-react"
 import { BarChart } from "@/components/charts/BarChart"
 import { LineChart } from "@/components/charts/LineChart"
 import { PieChart } from "@/components/charts/PieChart"

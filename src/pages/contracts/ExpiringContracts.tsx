@@ -2,7 +2,6 @@ import { PageContainer } from "@/components/layout/PageContainer"
 import { DataTable, type Column } from "@/components/common/DataTable"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { BadgeStatus } from "@/components/common/BadgeStatus"
 import { StatCard } from "@/components/common/StatCard"
 import { Calendar, AlertTriangle } from "lucide-react"
 
@@ -30,7 +29,7 @@ export function ExpiringContracts() {
     {
       key: "actions",
       header: "Actions",
-      render: (row) => (
+      render: () => (
         <Button variant="outline" size="sm">
           Assign Follow-up
         </Button>

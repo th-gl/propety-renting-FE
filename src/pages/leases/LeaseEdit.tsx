@@ -25,7 +25,7 @@ const leaseData = {
 }
 
 export function LeaseEdit() {
-  const { id } = useParams()
+  const { id: _id } = useParams()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(leaseData)
 
