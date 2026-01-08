@@ -19,7 +19,7 @@ const userData = {
 }
 
 export function UserEdit() {
-  const { id } = useParams()
+  const { id: _id } = useParams()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(userData)
 

@@ -5,7 +5,7 @@ import { DataTable, type Column } from "@/components/common/DataTable"
 import { FilterBar } from "@/components/common/FilterBar"
 import { Button } from "@/components/ui/button"
 import { BadgeStatus } from "@/components/common/BadgeStatus"
-import { Plus, Eye, FileText } from "lucide-react"
+import { Plus, Eye } from "lucide-react"
 
 const tenants = [
   { id: "1", name: "John Doe", email: "john@example.com", phone: "+1234567890", property: "Building A - Unit 101", category: "regular", status: "active" },

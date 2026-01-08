@@ -94,7 +94,7 @@ export function RoleCreate() {
                           <Checkbox
                             id={permission}
                             checked={selectedPermissions[permission] || false}
-                            onCheckedChange={(checked) => handlePermissionChange(permission, checked as boolean)}
+                            onChange={(e) => handlePermissionChange(permission, e.target.checked)}
                           />
                           <Label htmlFor={permission} className="text-sm font-normal cursor-pointer">
                             {permission}

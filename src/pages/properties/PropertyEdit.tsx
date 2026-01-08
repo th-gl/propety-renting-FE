@@ -24,7 +24,7 @@ const propertyData = {
 }
 
 export function PropertyEdit() {
-  const { id } = useParams()
+  const { id: _id } = useParams()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(propertyData)
 

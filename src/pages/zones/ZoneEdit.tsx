@@ -18,7 +18,7 @@ const zoneData = {
 }
 
 export function ZoneEdit() {
-  const { id } = useParams()
+  const { id: _id } = useParams()
   const navigate = useNavigate()
   const [formData, setFormData] = useState(zoneData)
 

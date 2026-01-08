@@ -5,7 +5,7 @@ import { BadgeStatus } from "@/components/common/BadgeStatus"
 import { Progress } from "@/components/ui/progress"
 import { TabsSection } from "@/components/common/TabsSection"
 import { DataTable, type Column } from "@/components/common/DataTable"
-import { Download, Upload, Settings } from "lucide-react"
+import { Download, Settings } from "lucide-react"
 
 const importData = {
   id: "1",

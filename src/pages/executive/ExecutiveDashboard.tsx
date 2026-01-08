@@ -3,10 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { StatCard } from "@/components/common/StatCard"
 import { BarChart } from "@/components/charts/BarChart"
 import { LineChart } from "@/components/charts/LineChart"
-import { PieChart } from "@/components/charts/PieChart"
 import { DataTable, type Column } from "@/components/common/DataTable"
-import { BadgeStatus } from "@/components/common/BadgeStatus"
-import { DollarSign, TrendingUp, TrendingDown, AlertTriangle, Bell, Zap } from "lucide-react"
+import { DollarSign, TrendingUp, AlertTriangle, Bell, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const executiveKpis = {

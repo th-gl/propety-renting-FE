@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Save, X, Upload } from "lucide-react"
-import { TabsSection } from "@/components/common/TabsSection"
 
 export function TenantCreate() {
   const navigate = useNavigate()
@@ -24,11 +23,6 @@ export function TenantCreate() {
     notes: "",
   })
 
-  const [kycData, setKycData] = useState({
-    idDocument: "",
-    proofOfAddress: "",
-    businessLicense: "",
-  })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
