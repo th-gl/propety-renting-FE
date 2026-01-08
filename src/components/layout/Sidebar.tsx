@@ -17,6 +17,7 @@ import {
   AlertTriangle,
   Upload,
   TrendingUp,
+  CheckSquare,
 } from "lucide-react"
 import {
   Sidebar as ShadcnSidebar,
@@ -42,6 +43,7 @@ const menuItems = [
   { id: "assets", label: "Assets", icon: FolderOpen, path: "/assets" },
   { id: "maintenance", label: "Maintenance", icon: Wrench, path: "/maintenance" },
   { id: "tickets", label: "Tickets", icon: Ticket, path: "/tickets" },
+  { id: "tasks", label: "Tasks", icon: CheckSquare, path: "/tasks" },
   { id: "imports", label: "Imports", icon: Upload, path: "/imports" },
   { id: "users", label: "Users", icon: UserCog, path: "/users" },
   { id: "roles", label: "Roles", icon: Shield, path: "/roles" },

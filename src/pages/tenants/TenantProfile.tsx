@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom"
 import { PageContainer } from "@/components/layout/PageContainer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { BadgeStatus } from "@/components/common/BadgeStatus"
 import { TabsSection } from "@/components/common/TabsSection"
+import { DataTable, type Column } from "@/components/common/DataTable"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { FileText, DollarSign, Calendar } from "lucide-react"
+import { FileText, DollarSign, Calendar, Eye } from "lucide-react"
 
 const tenantData = {
   id: "1",
@@ -20,13 +22,74 @@ const tenantData = {
   deposit: 10000,
 }
 
+const contracts = [
+  { id: "1", contractNumber: "CNT-001", property: "Building A - Unit 101", startDate: "2024-01-01", endDate: "2024-12-31", monthlyRent: 5000, status: "active" },
+  { id: "2", contractNumber: "CNT-002", property: "Building A - Unit 101", startDate: "2023-01-01", endDate: "2023-12-31", monthlyRent: 4500, status: "expired" },
+]
+
+const leases = [
+  { id: "1", leaseNumber: "LSE-001", property: "Building A - Unit 101", startDate: "2024-01-01", endDate: "2024-12-31", monthlyRent: 5000, status: "active" },
+]
+
 export function TenantProfile() {
+  const contractColumns: Column<typeof contracts[0]>[] = [
+    { key: "contractNumber", header: "Contract #" },
+    { key: "property", header: "Property" },
+    { key: "startDate", header: "Start Date" },
+    { key: "endDate", header: "End Date" },
+    { key: "monthlyRent", header: "Monthly Rent", render: (row) => `$${row.monthlyRent.toLocaleString()}` },
+    {
+      key: "status",
+      header: "Status",
+      render: (row) => <BadgeStatus status={row.status} />,
+    },
+    {
+      key: "actions",
+      header: "Actions",
+      render: (row) => (
+        <Button variant="ghost" size="icon" asChild>
+          <Link to={`/contracts/${row.id}`}>
+            <Eye className="h-4 w-4" />
+          </Link>
+        </Button>
+      ),
+    },
+  ]
+
+  const leaseColumns: Column<typeof leases[0]>[] = [
+    { key: "leaseNumber", header: "Lease #" },
+    { key: "property", header: "Property" },
+    { key: "startDate", header: "Start Date" },
+    { key: "endDate", header: "End Date" },
+    { key: "monthlyRent", header: "Monthly Rent", render: (row) => `$${row.monthlyRent.toLocaleString()}` },
+    {
+      key: "status",
+      header: "Status",
+      render: (row) => <BadgeStatus status={row.status} />,
+    },
+    {
+      key: "actions",
+      header: "Actions",
+      render: (row) => (
+        <Button variant="ghost" size="icon" asChild>
+          <Link to={`/leases/${row.id}`}>
+            <Eye className="h-4 w-4" />
+          </Link>
+        </Button>
+      ),
+    },
+  ]
+
   return (
     <PageContainer
       title="Tenant Profile"
       description={`Tenant: ${tenantData.name}`}
       actions={
-        <Button>Edit Tenant</Button>
+        <Button asChild>
+          <Link to={`/tenants/${tenantData.id}/edit`}>
+            Edit Tenant
+          </Link>
+        </Button>
       }
     >
       <div className="space-y-6">
@@ -67,6 +130,40 @@ export function TenantProfile() {
         <TabsSection
           tabs={[
             {
+              value: "contracts",
+              label: "Contracts",
+              content: (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <FileText className="h-5 w-5" />
+                      Contract History
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <DataTable columns={contractColumns} data={contracts} />
+                  </CardContent>
+                </Card>
+              ),
+            },
+            {
+              value: "leases",
+              label: "Leases",
+              content: (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <FileText className="h-5 w-5" />
+                      Lease History
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <DataTable columns={leaseColumns} data={leases} />
+                  </CardContent>
+                </Card>
+              ),
+            },
+            {
               value: "kyc",
               label: "KYC",
               content: (
@@ -88,23 +185,6 @@ export function TenantProfile() {
                       <Input id="proofOfAddress" type="file" accept=".pdf,.jpg,.png" />
                     </div>
                     <Button>Upload Documents</Button>
-                  </CardContent>
-                </Card>
-              ),
-            },
-            {
-              value: "leases",
-              label: "Leases",
-              content: (
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <FileText className="h-5 w-5" />
-                      Lease History
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">Lease history will appear here</p>
                   </CardContent>
                 </Card>
               ),
@@ -158,4 +238,3 @@ export function TenantProfile() {
     </PageContainer>
   )
 }
-
